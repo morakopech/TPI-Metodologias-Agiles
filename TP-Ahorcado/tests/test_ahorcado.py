@@ -32,3 +32,25 @@ def test_palabra_incorrecta():
     juego.palabra_a_adivinar = "hamaca"
     assert juego.validar_palabra("calesita") == False
     
+
+
+def test_iniciar_jugada():
+    juego = Ahorcado()
+    assert juego.intentos == 7
+    assert juego.intentos_restantes == 7
+    assert juego.letras_adivinadas == []
+
+
+def test_intento_pass():
+    juego = Ahorcado()
+    juego.palabra_a_adivinar = "esponja"
+    assert juego.intento("e") == True
+    assert juego.letras_adivinadas == ["e"]
+    assert juego.intentos_restantes == 7
+    
+def test_intento_fail():
+    juego = Ahorcado()
+    juego.palabra_a_adivinar = "esponja"
+    assert juego.intento("z") == False
+    assert juego.letras_adivinadas == []
+    assert juego.intentos_restantes == 6
