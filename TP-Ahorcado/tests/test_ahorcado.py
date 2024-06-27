@@ -54,3 +54,9 @@ def test_intento_fail():
     assert juego.intento("z") == False
     assert juego.letras_adivinadas == []
     assert juego.intentos_restantes == 6
+
+
+def test_letras_utili():
+    juego = Ahorcado()
+    juego.letras_adivinadas.append("a")
+    assert juego.letras_utilizadas("a") == True
