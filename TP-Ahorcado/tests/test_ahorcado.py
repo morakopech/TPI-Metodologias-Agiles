@@ -60,3 +60,35 @@ def test_letras_utili():
     juego = Ahorcado()
     juego.letras_adivinadas.append("a")
     assert juego.letras_utilizadas("a") == True
+
+
+
+def test_estado_del_juego():
+    juego = Ahorcado()
+    juego.palabra_a_adivinar = "perro"
+    juego.validar_letra('p')
+    juego.validar_letra('e')
+    assert juego.validar_fin_del_juego() == False
+
+def test_juego_terminado_ganador():
+    juego = Ahorcado()
+    juego.palabra_a_adivinar = "perro"
+    juego.intento("p")
+    juego.intento("e")
+    juego.intento("r")
+    juego.intento("r")
+    juego.intento("o")
+    assert juego.validar_fin_del_juego() == True
+
+def test_juego_terminado_perdedor():
+    juego = Ahorcado()
+    juego.palabra_a_adivinar = "gato"
+    juego.intento("q")
+    juego.intento("w")
+    juego.intento("y") 
+    juego.intento("m")
+    juego.intento("z")
+    juego.intento("x")
+    juego.intento("i")
+    assert juego.validar_fin_del_juego() == True
+    
