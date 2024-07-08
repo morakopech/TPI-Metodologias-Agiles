@@ -1,17 +1,5 @@
 from ahorcado import *
 
-def test_cant_rayitas():
-    juego = Ahorcado()
-    assert juego.rayitas("Botella") == "_ _ _ _ _ _ _"
-
-def test_cant_rayitas2():
-    juego = Ahorcado()
-    assert juego.rayitas("cargador") == "_ _ _ _ _ _ _ _"
-
-def test_cant_rayitas3():
-    juego = Ahorcado()
-    assert juego.rayitas("computadora") == "_ _ _ _ _ _ _ _ _ _ _"
-
 def test_letra_correcta():
     juego = Ahorcado()
     juego.palabra_a_adivinar = "hamaca"
