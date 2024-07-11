@@ -36,4 +36,9 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        pytest
+        pytest --cov=./ --cov-report xml --cov-report term
+    - name: Upload coverage report
+      uses: actions/upload-artifact@v2  
+      with:
+        name: coverage-report
+        path: coverage.xml
