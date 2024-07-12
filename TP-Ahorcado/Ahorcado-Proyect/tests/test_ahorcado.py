@@ -2,17 +2,17 @@ from ahorcado import *
 
 def test_letra_correcta():
     juego = Ahorcado()
-    juego.palabra_a_adivinar.insert(0,"hamaca")  
+    juego.palabra_a_adivinar[0] = "hamaca"
     assert juego.validar_letra("a") == True
     
 def test_letra_incorrecta():
     juego = Ahorcado()
-    juego.palabra_a_adivinar.insert(0,"hamaca") 
+    juego.palabra_a_adivinar = "hamaca"
     assert juego.validar_letra("e") == False
     
 def test_palabra_correcta():
     juego = Ahorcado()
-    juego.palabra_a_adivinar.insert(0,"hamaca") 
+    juego.palabra_a_adivinar[0] = "hamaca"
     assert juego.validar_palabra("hamaca") == True
     
 def test_palabra_incorrecta():
@@ -31,14 +31,14 @@ def test_iniciar_jugada():
 
 def test_intento_pass():
     juego = Ahorcado()
-    juego.palabra_a_adivinar.insert(0, "esponja") 
+    juego.iniciar(palabra="esponja") 
     assert juego.intento("e") == True
     assert juego.letras_adivinadas == ["e"]
     assert juego.intentos_restantes == 7
     
 def test_intento_fail():
     juego = Ahorcado()
-    juego.palabra_a_adivinar.insert(0, "esponja") 
+    juego.palabra_a_adivinar = "esponja"
     assert juego.intento("z") == False
     assert juego.letras_adivinadas == []
     assert juego.intentos_restantes == 6
@@ -53,14 +53,14 @@ def test_letras_utili():
 
 def test_estado_del_juego():
     juego = Ahorcado()
-    juego.palabra_a_adivinar.insert(0, "perro")
+    juego.palabra_a_adivinar = "perro"
     juego.validar_letra('p')
     juego.validar_letra('e')
     assert juego.validar_fin_del_juego() == False
 
 def test_juego_terminado_ganador():
     juego = Ahorcado()
-    juego.palabra_a_adivinar.insert(0, "perro")
+    juego.iniciar(palabra="perro") 
     juego.intento("p")
     juego.intento("e")
     juego.intento("r")
@@ -70,7 +70,7 @@ def test_juego_terminado_ganador():
 
 def test_juego_terminado_perdedor():
     juego = Ahorcado()
-    juego.palabra_a_adivinar.insert(0,"gato")
+    juego.palabra_a_adivinar = "gato"
     juego.intento("q")
     juego.intento("w")
     juego.intento("y") 

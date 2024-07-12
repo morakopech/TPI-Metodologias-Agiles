@@ -50,6 +50,8 @@ class Ahorcado():
             return False
 
     def revelar_letra_correcta(self, letra):
+        if len(self.palabra_a_adivinar[0]) != len(self.palabra_a_mostrar):
+            raise ValueError("La longitud de la palabra a adivinar y la palabra a mostrar no coinciden.")
         for idx, l in enumerate(self.palabra_a_adivinar[0]):
             if l == letra:
                 self.palabra_a_mostrar[idx] = letra
