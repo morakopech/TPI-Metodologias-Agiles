@@ -17,6 +17,10 @@ def iniciar_juego(nivel):
 
 @app.route('/inicio')
 def inicio():
+    palabra = request.args.get('palabra')
+    pista = request.args.get('pista')
+    if palabra:
+        juego.iniciar(palabra=palabra, pista=pista)
     return render_template(
         'template.html',
         palabra_a_mostrar=" ".join(juego.palabra_a_mostrar),

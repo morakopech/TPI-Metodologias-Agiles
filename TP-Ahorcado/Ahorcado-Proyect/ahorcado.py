@@ -15,7 +15,7 @@ class Ahorcado():
         self.palabra_a_mostrar = []
         self.juego_finalizado = False
 
-    def iniciar(self, dificultad=None, palabra=None):
+    def iniciar(self, dificultad=None, palabra=None, pista=None):
         self.intentos = 7
         self.letras_adivinadas = []
         self.juego_finalizado = False
@@ -25,7 +25,7 @@ class Ahorcado():
         else:
             self.palabra_a_adivinar[0] = palabra
         self.palabra_a_mostrar = ['_' for _ in self.palabra_a_adivinar[0]]
-        self.pista = self.palabra_a_adivinar[1]
+        self.pista = pista if pista is not None else self.palabra_a_adivinar[1] #self.pista = self.palabra_a_adivinar[1] 
         self.intentos_restantes = 7
 
     def validar_letra(self, letra):
