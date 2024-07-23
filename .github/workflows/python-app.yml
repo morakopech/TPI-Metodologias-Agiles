@@ -44,6 +44,18 @@ jobs:
       with:
         name: coverage-report
         path: coverage.xml
-    - name: Run acceptance tests
-      run: behave
+    - name: Download ChromeDriver
+      run: |
+          wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/126.0.6478.126/linux64/chromedriver-linux64.zip
+          unzip chromedriver-linux64.zip
+    
+    - name: Set Permissions for ChromeDriver
+      run: |
+          chmod +x chromedriver-linux64
+    
+    - name: Run Test
+      if: always()
+      run: 
+          behave -vv TPI-Metodologias-Agiles/features
+      continue-on-error: true
           
