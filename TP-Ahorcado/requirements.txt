@@ -9,6 +9,7 @@ colorama==0.4.6
 coverage==7.6.0
 flake8==7.1.0
 Flask==3.0.3
+gunicorn==22.0.0
 h11==0.14.0
 idna==3.7
 iniconfig==2.0.0
@@ -37,8 +38,7 @@ trio==0.26.0
 trio-websocket==0.11.1
 typing_extensions==4.12.2
 urllib3==2.2.2
-webdriver-manager==4.0.1
+webdriver-manager==4.0.2
 websocket-client==1.8.0
 Werkzeug==3.0.3
 wsproto==1.2.0
-gunicorn==20.1.0
