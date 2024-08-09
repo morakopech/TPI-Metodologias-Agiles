@@ -4,12 +4,18 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from webdriver_manager.chrome import ChromeDriverManager
 import time
+
 
 @given('launch chrome browser')
 def launchBrowser(context):
-    service = Service(r"C:\Users\juanc\Desktop\Metodologias Agiles\TPI\Metodologias-Agiles\TP-Ahorcado\features\steps\chromedriver.exe") #(r"C:\Users\juanc\Desktop\Metodologias Agiles\TPI\Metodologias-Agiles\TP-Ahorcado\automatic-test\features\steps\chromedriver.exe")
-    context.driver = webdriver.Chrome(service=service)
+    #service = Service(r"C:\Users\juanc\Desktop\Metodologias Agiles\TPI\Metodologias-Agiles\TP-Ahorcado\features\steps\chromedriver.exe") #(r"C:\Users\juanc\Desktop\Metodologias Agiles\TPI\Metodologias-Agiles\TP-Ahorcado\automatic-test\features\steps\chromedriver.exe")
+    #context.driver = webdriver.Chrome(service=service)
+    options = webdriver.ChromeOptions()
+    #options.add_argument('--headless')
+    context.driver = webdriver.Chrome(options=options)
+    context.driver.get("http://127.0.0.1:5000/")
 
 @when('Ingreso a la pagina del juego')
 def step_ingreso_pagina(context):
@@ -35,8 +41,11 @@ def numero_de_intentos(context):
 
 @given('un juego de Ahorcado con la palabra "{palabra}", "{pista}"')
 def inicio_juego_con_palabra(context, palabra, pista):
-    service = Service(r"C:\Users\juanc\Desktop\Metodologias Agiles\TPI\Metodologias-Agiles\TP-Ahorcado\features\steps\chromedriver.exe")
-    context.driver = webdriver.Chrome(service=service)
+    #service = Service(r"C:\Users\juanc\Desktop\Metodologias Agiles\TPI\Metodologias-Agiles\TP-Ahorcado\features\steps\chromedriver.exe")
+    #context.driver = webdriver.Chrome(service=service)
+    options = webdriver.ChromeOptions()
+    #options.add_argument('--headless')
+    context.driver = webdriver.Chrome(options=options)
     context.driver.get(f"http://127.0.0.1:5000/inicio?palabra={palabra}&pista={pista}")
     time.sleep(5)
 
@@ -82,8 +91,11 @@ def letra_usada2(context,letra):
 
 @given('un juego de Ahorcado con la palabra "{palabra}", "{pista}" para validar letra incorrecta')
 def inicio_juego_con_palabra_2(context, palabra, pista):
-    service = Service(r"C:\Users\juanc\Desktop\Metodologias Agiles\TPI\Metodologias-Agiles\TP-Ahorcado\features\steps\chromedriver.exe")
-    context.driver = webdriver.Chrome(service=service)
+    #service = Service(r"C:\Users\juanc\Desktop\Metodologias Agiles\TPI\Metodologias-Agiles\TP-Ahorcado\features\steps\chromedriver.exe")
+    #context.driver = webdriver.Chrome(service=service)
+    options = webdriver.ChromeOptions()
+    #options.add_argument('--headless')
+    context.driver = webdriver.Chrome(options=options)
     context.driver.get(f"http://127.0.0.1:5000/inicio?palabra={palabra}&pista={pista}")
     time.sleep(3)
 
@@ -128,8 +140,11 @@ def letra_usada(context,letra):
 
 @given('un juego del Ahorcado con la palabra "{palabra}", "{pista}"')
 def inicio_juego_con_palabra_2(context, palabra, pista):
-    service = Service(r"C:\Users\juanc\Desktop\Metodologias Agiles\TPI\Metodologias-Agiles\TP-Ahorcado\features\steps\chromedriver.exe")
-    context.driver = webdriver.Chrome(service=service)
+    #service = Service(r"C:\Users\juanc\Desktop\Metodologias Agiles\TPI\Metodologias-Agiles\TP-Ahorcado\features\steps\chromedriver.exe")
+    #context.driver = webdriver.Chrome(service=service)
+    options = webdriver.ChromeOptions()
+    #options.add_argument('--headless')
+    context.driver = webdriver.Chrome(options=options)    
     context.driver.get(f"http://127.0.0.1:5000/inicio?palabra={palabra}&pista={pista}")
     time.sleep(3)
 
