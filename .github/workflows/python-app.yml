@@ -44,17 +44,26 @@ jobs:
       with:
         name: coverage-report
         path: coverage.xml
+
+    - name: Install Google Chrome
+      run: |
+          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo apt install ./google-chrome-stable_current_amd64.deb
+
     - name: Download ChromeDriver
       run: |
           wget https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip
           unzip chromedriver_linux64.zip
-    - name: List files
-      run: |
-            ls -l
+
+
     - name: Set Permissions for ChromeDriver
       run: |
           chmod +x chromedriver
     
+    - name: List files
+      run: |
+              ls -l
+
     - name: Run Test
       if: always()
       run: 
